@@ -16,7 +16,7 @@ function App() {
   }
 
   const updateToDo = (id, todo) => {
-
+    setTodos((prevTodos) => prevTodos.map((prevTodo) => id===prevTodo.id ? todo : prevTodo));
   }
 
   const toggleComplete = (id) => {
