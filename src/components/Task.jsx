@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import ToDoContext from "../context/ToDoContext";
 
 function Task({ todo }) {
-    const { todos, deleteToDo, updateToDo } = useContext(ToDoContext);
+    const { deleteToDo, updateToDo } = useContext(ToDoContext);
     const [isEditable, setIsEditable] = useState(true);
     const [todoMsg, setTodoMsg] = useState(todo.title);
     const [btn, setBtn] = useState("Edit");
@@ -12,7 +12,10 @@ function Task({ todo }) {
             <div className="flex items-center">
                 <input
                     type="text"
-                    className="border outline-none border-none px-2 w-full bg-transparent rounded-lg"
+                    className={
+                        `border outline-none border-none px-2 w-full bg-transparent rounded-lg
+                        ${!isEditable ? "border bg-white py-2" : ""}`
+                    }
                     value={todoMsg}
                     onChange={(e)=>setTodoMsg(e.target.value)}
                     readOnly={isEditable}

@@ -5,7 +5,6 @@ const ToDoContext = createContext({
     addToDo: (todo)=>{},
     deleteToDo: (id)=>{},
     updateToDo: (id, todo)=>{},
-    toggleComplete: (id)=>{}
 });
 
 export default ToDoContext;

@@ -20,13 +20,9 @@ function App() {
     setTodos((prevTodos) => prevTodos.map((prevTodo) => id===prevTodo.id ? todo : prevTodo));
   }
 
-  const toggleComplete = (id) => {
-
-  }
-
   return (
     <>
-      <ToDoContext.Provider value={{ todos, addToDo, deleteToDo, updateToDo, toggleComplete }}>
+      <ToDoContext.Provider value={{ todos, addToDo, deleteToDo, updateToDo }}>
         <div className="w-screen h-screen bg-slate-900 flex items-center flex-col">
           <div className="w-1/3 h-12 bg-slate-50 flex justify-center items-center mt-10 rounded-lg">
             <input 
