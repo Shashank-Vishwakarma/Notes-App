@@ -7,16 +7,9 @@ function Task({ todo }) {
     const [todoMsg, setTodoMsg] = useState(todo.title);
     const [btn, setBtn] = useState("Edit");
 
-    console.log(todos)
-
     return (
         <div className="w-full px-2 py-2 bg-slate-400 rounded-md my-2">
             <div className="flex items-center">
-                <input 
-                    type="checkbox" 
-                    id={todo.id} 
-                    className="w-6 h-4"
-                />
                 <input
                     type="text"
                     className="border outline-none border-none px-2 w-full bg-transparent rounded-lg"
@@ -30,7 +23,6 @@ function Task({ todo }) {
                         updateToDo(todo.id, {title: todoMsg, ...todo})
                         setIsEditable(!isEditable)
                         setBtn((prev) => prev==="Edit" ? "Save" : "Edit");
-                        console.log("updating : ", todo)
                     }}
                 >
                     {btn}
@@ -39,7 +31,6 @@ function Task({ todo }) {
                     className="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                     onClick={()=>{
                         deleteToDo(todo.id);
-                        console.log("deleting : ", todo);
                     }}
                 >
                     Delete

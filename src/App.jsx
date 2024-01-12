@@ -10,7 +10,6 @@ function App() {
   const addToDo = (todo)=>{
     setTodos((prevTodos) => [...prevTodos, todo]);
     setText("");
-    console.log("adding : ", todo)
   }
 
   const deleteToDo = (id)=>{
@@ -49,7 +48,9 @@ function App() {
           <div className="w-1/3 h-fit">
             {
               todos.map((todo)=>(
-                <Task todo={todo}/>
+                <li key={todo.id} className="list-none">
+                  <Task todo={todo}/>
+                </li>
               ))
             }
           </div>
