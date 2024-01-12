@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import ToDoContext from "../context/ToDoContext";
 
 function Task({ todo }) {
+    const { deleteToDo } = useContext(ToDoContext);
+
     return (
         <div className="w-full px-2 py-2 bg-slate-400 rounded-md my-2">
             <div className="flex items-center">
@@ -22,6 +24,9 @@ function Task({ todo }) {
                 </button>
                 <button 
                     className="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={()=>{
+                        deleteToDo(todo.id)
+                    }}
                 >
                     Delete
                 </button>

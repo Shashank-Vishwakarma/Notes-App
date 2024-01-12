@@ -12,7 +12,7 @@ function App() {
   }
 
   const deleteToDo = (id)=>{
-
+    setTodos((prevTodos) => prevTodos.filter((prevTodo) => id!==prevTodo.id));
   }
 
   const updateToDo = (id, todo) => {
