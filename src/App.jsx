@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Task from "./components/Task"
 import ToDoContext from "./context/ToDoContext";
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
   const [text, setText] = useState('');
@@ -9,6 +10,7 @@ function App() {
   const addToDo = (todo)=>{
     setTodos((prevTodos) => [...prevTodos, todo]);
     setText("");
+    console.log("adding : ", todo)
   }
 
   const deleteToDo = (id)=>{
@@ -38,7 +40,7 @@ function App() {
             <button 
               className="flex-1 bg-slate-300 h-full rounded-r-lg hover:bg-slate-400"
               onClick={()=>{
-                addToDo({id:Date.now(), title: text})
+                addToDo({id:uuidv4(), title: text})
               }}
             >
               Add
